@@ -14,6 +14,10 @@ public class IndexServlet extends HttpServlet {
         HttpServletRequest request,
         HttpServletResponse response) 
         throws ServletException, IOException {
-            response.getWriter().print("Olá Servlet");
+            String n = request.getParameter("nome");
+            request.setAttribute("nome", n);
+            //response.getWriter().print("Olá " + n);
+            request.getRequestDispatcher(
+                "/index.jsp").forward(request, response);
     }
 }
